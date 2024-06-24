@@ -1,0 +1,62 @@
+<router-outlet />
+
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+  
+    <ng-container matColumnDef="idSigno">    
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+        <td mat-cell *matCellDef="let element"> {{element.idSigno}} </td>    
+    </ng-container>
+
+    <ng-container matColumnDef="patient">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Patient </th>
+      <td mat-cell *matCellDef="let element"> {{element.patient.firstName}} {{element.patient.lastName}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+      <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="temperatura">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Temperatura </th>
+      <td mat-cell *matCellDef="let element"> {{element.temperatura}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pulso">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Pulso </th>
+        <td mat-cell *matCellDef="let element"> {{element.pulso}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="ritmo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ritmo Cardico </th>
+        <td mat-cell *matCellDef="let element"> {{element.ritmo}} </td>
+      </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button color="primary" [routerLink]="['edit', element.idSigno]">
+          <mat-icon>mode_edit</mat-icon>
+        </button>
+  
+        <button mat-button color="accent" (click)="delete(element.idSigno)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="getDisplayedColumns()"></tr>
+    <tr mat-row *matRowDef="let row; columns: getDisplayedColumns();"></tr>
+  </table>
+  
+  <mat-paginator [pageSizeOptions]="[5, 10, 20, 50]" aria-label="Select page of patients"></mat-paginator>
+<!--
+  <button mat-fab color="primary" style="float: right;" (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+-->

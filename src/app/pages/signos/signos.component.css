@@ -1,0 +1,33 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    display: table;
+  }
+
+.example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+
+.example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+
+.example-button-row {
+    margin: 8px 8px 8px 0;
+  }
+
+.example-container>* {
+    width: 100%;
+}
+
+.invalid {
+    color: red;
+}
+

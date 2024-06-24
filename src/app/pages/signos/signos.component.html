@@ -1,0 +1,73 @@
+<form [formGroup]="form" class="example-container">
+
+    <mat-form-field>
+        <input matInput placeholder="Patient" formControlName="pat" [matAutocomplete]="autoExam"
+            [formControl]="patControl">
+        <mat-autocomplete #autoExam="matAutocomplete" [displayWith]="showExam">
+            @for (ex of patientsFiltered$ | async; track $index) {
+            <mat-option [value]="ex">
+                {{ex.firstName }} {{ex.lastName }} 
+            </mat-option>
+            }
+        </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" [min]="minDate" formControlName="fecha" (dateChange)="getDate($event)">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Temperatura" required formControlName="temperatura">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Pulso" required formControlName="pulso">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Ritmo" required formControlName="ritmo">
+    </mat-form-field>
+
+
+</form>
+
+<section>
+    <div class="example-label"></div>
+    <div class="example-button-row">
+        <button mat-raised-button color="primary" type="button" (click)="save()">
+            <mat-icon>done</mat-icon>
+            <span>Save</span>
+        </button>
+    </div>
+
+    <div class="example-label"></div>
+    <div class="example-button-row">
+        <button mat-raised-button color="accent" type="button" (click)="clear()">
+            <mat-icon>cancel</mat-icon>
+            <span>Clear</span>
+        </button>
+    </div>
+
+    <div class="example-label"></div>
+    <div class="example-button-row">
+        <button mat-raised-button color="primary" type="button" (click)="openDialog()">
+            
+            <span>New Patient</span>
+        </button>
+    </div>
+
+
+        
+    <!--
+        
+    -->
+
+</section>
+
+
+           
+      

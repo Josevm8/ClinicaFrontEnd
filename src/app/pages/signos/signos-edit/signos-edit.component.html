@@ -1,0 +1,48 @@
+<form [formGroup]="form" class="example-container" (submit)="operate()">
+
+    <div [hidden]="true">
+        <mat-form-field>
+            <input matInput placeholder="ID" required formControlName="idSigno">
+        </mat-form-field>
+    </div>
+
+    <div [hidden]="true">
+        <mat-form-field>
+            <input matInput placeholder="IDX" required formControlName="idPatient">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field>
+        <input matInput placeholder="Patient" required formControlName="nombres">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Patient" required formControlName="apellidos">
+    </mat-form-field>
+<!--
+    <mat-form-field>
+        <input matInput placeholder="Fecha" required formControlName="fecha">
+    </mat-form-field>
+-->
+    <mat-form-field>
+        <input matInput placeholder="Temperatura" required formControlName="temperatura">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Pulso" required formControlName="pulso">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Ritmo" required formControlName="ritmo">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+        <mat-icon>done</mat-icon>
+        <span>Save</span>
+    </button>
+
+    <button mat-raised-button color="accent" type="button" routerLink="/pages/signos-search">
+        <mat-icon>cancel</mat-icon>
+        <span>Cancel</span>
+    </button>
+</form>

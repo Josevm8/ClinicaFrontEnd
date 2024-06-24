@@ -1,0 +1,34 @@
+<mat-dialog-content>
+    <mat-toolbar>
+        <span>Patient Info</span>
+    </mat-toolbar>
+
+    <div class="example-container">
+        <mat-form-field>
+            <input matInput placeholder="FirstName" [(ngModel)]="patient.firstName">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="LastName" [(ngModel)]="patient.lastName">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Email" [(ngModel)]="patient.email">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Phone" [(ngModel)]="patient.phone">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Dni" [(ngModel)]="patient.dni">
+        </mat-form-field>
+
+    </div>
+
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile><button mat-raised-button color="primary" (click)="operate()">Done</button></mat-grid-tile>
+        <mat-grid-tile><button mat-raised-button color="accent" (click)="close()">Cancel</button></mat-grid-tile>
+    </mat-grid-list>    
+
+</mat-dialog-content>
