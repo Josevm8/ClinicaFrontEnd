@@ -24,9 +24,9 @@ export const appConfig: ApplicationConfig = {
         config: {
           tokenGetter: tokenGetter,
           //allowedDomains: ["104.131.170.146/mediapp-backend"],
-          allowedDomains: ["localhost:8080"], //Propagar el token en todas las peticiones
+          allowedDomains: ["https://clinica-java17.orangeisland-c899927f.eastus2.azurecontainerapps.io"], //Propagar el token en todas las peticiones
           //disallowedRoutes: ["http://104.131.170.146/mediapp-backend/login/forget"]
-          disallowedRoutes: ["http://localhost:8080/login/forget"] //No propaga para esta ruta especifica
+          disallowedRoutes: ["https://clinica-java17.orangeisland-c899927f.eastus2.azurecontainerapps.io/login/forget"] //No propaga para esta ruta especifica
         },
       })
     ),
