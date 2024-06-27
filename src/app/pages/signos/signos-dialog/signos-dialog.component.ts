@@ -7,6 +7,7 @@ import { MaterialModule } from '../../../material/material.module';
 import { FormsModule } from '@angular/forms';
 import { switchMap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+//import { Signos } from '../../../model/signos';
 
 @Component({
   selector: 'app-signos-dialog',

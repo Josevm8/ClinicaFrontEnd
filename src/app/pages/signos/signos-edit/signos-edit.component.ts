@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MaterialModule } from '../../../material/material.module';
 import { Signos } from '../../../model/signos';
 import { Patient } from '../../../model/patient';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-signos-edit',
@@ -18,6 +19,7 @@ export class SignosEditComponent implements OnInit {
   form: FormGroup;
   id: number;
   isEdit: boolean;
+ // minDate: Date = new Date();
 
   constructor(
     private route: ActivatedRoute,
@@ -33,10 +35,11 @@ export class SignosEditComponent implements OnInit {
       idPatient: new FormControl(0),
       nombres: new FormControl(''),
       apellidos: new FormControl(''),
-      // fecha: new FormControl(''),
+      fecha: new FormControl(''),
       temperatura: new FormControl(''),
       pulso: new FormControl(''),
       ritmo: new FormControl(''),
+      
 
     });
 
@@ -58,9 +61,9 @@ export class SignosEditComponent implements OnInit {
         this.form = new FormGroup({
           idSigno: new FormControl(data.idSigno),
           idPatient: new FormControl(data.patient.idPatient),
-          nombres: new FormControl(data.patient.firstName),
-          apellidos: new FormControl(data.patient.lastName),
-          //  fecha: new FormControl(data.fecha),
+          nombres: new FormControl( {value: data.patient.firstName, disabled: true} ),
+          apellidos: new FormControl( {value: data.patient.lastName, disabled: true} ),
+          fecha: new FormControl( data.fecha ),
           temperatura: new FormControl(data.temperatura),
           pulso: new FormControl(data.pulso),
           ritmo: new FormControl(data.ritmo),
@@ -80,6 +83,7 @@ export class SignosEditComponent implements OnInit {
     signos.pulso = this.form.value['pulso'];
     signos.ritmo = this.form.value['ritmo'];
     signos.fecha = this.form.value['fecha'];
+    //signos.fecha = format(this.form.value['fecha'], "yyyy-MM-dd'T'HH:mm:ss");  
 
     const pacientes = new Patient();
     pacientes.idPatient = this.form.value['idPatient'];

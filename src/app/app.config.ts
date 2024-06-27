@@ -23,9 +23,9 @@ export const appConfig: ApplicationConfig = {
       JwtModule.forRoot({
         config: {
           tokenGetter: tokenGetter,
-          //allowedDomains: ["104.131.170.146/mediapp-backend"],
+          //allowedDomains: ["localhost:8080"],
           allowedDomains: ["clinica-java17.orangeisland-c899927f.eastus2.azurecontainerapps.io"], //Propagar el token en todas las peticiones
-          //disallowedRoutes: ["http://104.131.170.146/mediapp-backend/login/forget"]
+          //disallowedRoutes: ["localhost:8080/login/forget"]
           disallowedRoutes: ["https://clinica-java17.orangeisland-c899927f.eastus2.azurecontainerapps.io/login/forget"] //No propaga para esta ruta especifica
         },
       })
